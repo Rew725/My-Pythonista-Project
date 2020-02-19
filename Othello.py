@@ -150,12 +150,18 @@ class Othello (Scene):
 		global placing_piece,turn,can_placing_piece
 		a=min(self.size[0]-100,self.size[1]-100) / 8
 		mi=min(self.size[0],self.size[1])
+		aa=(max(self.size[0],self.size[1])-min(self.size[0],self.size[1])) / 2
 		background(1, 1, 1)
-		fill(1,1,1)
 		stroke("black")
 		stroke_weight(2)
+		fill("green")
+		if mi == self.size[0]:
+			rect(50,aa+50,a*8,a*8)
+		if mi == self.size[1]:
+			rect(aa+50,50,a*8,a*8)
+		fill(1,1,1)
+		
 		#drawing field
-		aa=(max(self.size[0],self.size[1])-min(self.size[0],self.size[1])) / 2
 		for i in range(9):
 			b = a * i
 			if mi == self.size[0]:
