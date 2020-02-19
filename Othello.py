@@ -190,14 +190,21 @@ class Othello (Scene):
 						
 		# draw text
 		T=["","黒","白"]
+		NUM="ABCDEFGH"
 		tint(0,0,0,1)
 		if mi == self.size[0]:
 			text('{}の番'.format(T[turn]), font_name='Hiragino Maru Gothic ProN', font_size=32.0, x=self.size[0]/3, y=self.size[1]-32, alignment=5)
 			text('(黒,白)=({},{})'.format(self.count_piece(1),self.count_piece(2)), font_name='Hiragino Maru Gothic ProN', font_size=32.0, x=self.size[0]/3*2, y=self.size[1]-32, alignment=5)
+			for i in range(8):
+				text(NUM[i],font_name='Hiragino Maru Gothic ProN',font_size=32.0, x=a/2+a*i+50,y=aa+32,alignment=5)		
+				text("{}".format(i+1),font_name='Hiragino Maru Gothic ProN',font_size=32.0, x=32,y=self.size[1]-aa-a*i-50-a/2,alignment=5)
 
 		if mi == self.size[1]:
 			text('{}の番'.format(T[turn]), font_name='Hiragino Maru Gothic ProN', font_size=32.0, x=self.size[0]/3, y=self.size[1]-32, alignment=5)
 			text('(黒,白)=({},{})'.format(self.count_piece(1),self.count_piece(2)), font_name='Hiragino Maru Gothic ProN', font_size=32.0, x=self.size[0]/3*2, y=self.size[1]-32, alignment=5)
+			for i in range(8):
+				text(NUM[i],font_name='Hiragino Maru Gothic ProN',font_size=32.0, x=a/2+aa+a*i+50,y=32,alignment=5)		
+				text("{}".format(i+1),font_name='Hiragino Maru Gothic ProN',font_size=32.0, x=aa+32,y=self.size[1]-aa-a*i+a/2,alignment=5)
 		
 		self.count_can_put(turn)
 		for i in range(8):
